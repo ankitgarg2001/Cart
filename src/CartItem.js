@@ -13,16 +13,19 @@ class CartItem extends React.Component{
         // this.increaseQuantity = this.increaseQuantity.bind(this);
     }
     increaseQuantity = () => {
-        console.log('this.state',this.state);
-        console.log('this.state.qty',this.state.qty);
-        console.log('increase qty',this.state.qty+1); 
-        this.state.qty = this.state.qty+1;     
+        this.setState ({
+            qty: this.state.qty+1
+        });    
     }
     decreaseQuantity = () => {
-        console.log('this.state',this.state);
-        console.log('this.state.qty',this.state.qty);
-        console.log('increase qty',this.state.qty-1);
-        this.state.qty = this.state.qty-1;    
+        // this.setState({
+        //     qty: this.state.qty-1
+        // });
+        this.setState((prevState)=>{
+            return{
+                qty: prevState.qty-1
+            }
+        });    
     }
     render(){
         const {price, title, qty} = this.state;
@@ -34,7 +37,7 @@ class CartItem extends React.Component{
                 <div className="right-block">
                     <div style={{fontSize : 25}}>{title}</div>
                     <div style={{color : '#777'}}>Rs {price}</div>
-                    <div style={{color : '#777'}}>qty {qty}</div>
+                    <div style={{color : '#777'}}>Qty: {qty}</div>
                     <div className="cart-item">
                         {/* Button */}
                         <img 
