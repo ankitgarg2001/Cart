@@ -10,6 +10,19 @@ class CartItem extends React.Component{
             qty: 1,
             imag: ''
         }
+        // this.increaseQuantity = this.increaseQuantity.bind(this);
+    }
+    increaseQuantity = () => {
+        console.log('this.state',this.state);
+        console.log('this.state.qty',this.state.qty);
+        console.log('increase qty',this.state.qty+1); 
+        this.state.qty = this.state.qty+1;     
+    }
+    decreaseQuantity = () => {
+        console.log('this.state',this.state);
+        console.log('this.state.qty',this.state.qty);
+        console.log('increase qty',this.state.qty-1);
+        this.state.qty = this.state.qty-1;    
     }
     render(){
         const {price, title, qty} = this.state;
@@ -24,9 +37,23 @@ class CartItem extends React.Component{
                     <div style={{color : '#777'}}>qty {qty}</div>
                     <div className="cart-item">
                         {/* Button */}
-                        <img alt="increase" className="actions-icons" src="https://image.flaticon.com/icons/png/512/992/992651.png"/>
-                        <img alt="decrease" className="actions-icons" src="https://image.flaticon.com/icons/png/512/992/992683.png"/>
-                        <img alt="delete" className="actions-icons" src="https://image.flaticon.com/icons/png/512/1/1570.png"/>
+                        <img 
+                            alt="increase" 
+                            className="actions-icons" 
+                            src="https://image.flaticon.com/icons/png/512/992/992651.png" 
+                            onClick={this.increaseQuantity}
+                        />
+                        <img 
+                            alt="decrease" 
+                            className="actions-icons" 
+                            src="https://image.flaticon.com/icons/png/512/992/992683.png"
+                            onClick={this.decreaseQuantity}
+                        />
+                        <img 
+                            alt="delete" 
+                            className="actions-icons" 
+                            src="https://image.flaticon.com/icons/png/512/1/1570.png"
+                        />
                     </div>
                 </div>
             </div>
