@@ -11,16 +11,56 @@ class CartItem extends React.Component{
             imag: ''
         }
         // this.increaseQuantity = this.increaseQuantity.bind(this);
+        // this.testing();
     }
     increaseQuantity = () => {
-        this.setState ({
-            qty: this.state.qty+1
-        });    
+            {/*Form1 - SetSate*/}
+
+        this.setState ((prevstate)=>{
+            return{
+                qty: prevstate.qty+1
+            }
+        });   
+
+        {/*Form2 - SetSate*/}
+        // this.setState({
+        //     qty:this.state.qty+1
+        // });
+
+        {/*Batching only last call happens*/}
+        // this.setState({
+        //     qty:this.state.qty+1
+        // });
+        // this.setState({
+        //     qty:this.state.qty+1
+        // });
+        // this.setState({
+        //     qty:this.state.qty+1
+        // });
+        
     }
+    // testing(){
+    //     const promise = new Promise((resolve,reject)=>{
+    //         setTimeout(()=>{
+    //             resolve('done');
+    //         },5000);
+    //     });
+    //     promise.then(()=>{
+    //         this.setState({qty:this.state.qty+10});
+    //         this.setState({qty:this.state.qty+10});
+    //         this.setState({qty:this.state.qty+10});
+    //         console.log(this.state);
+    //     });
+    // }
     decreaseQuantity = () => {
+        const{qty} = this.state;
+        if(qty===0){
+            return;
+        }
         // this.setState({
         //     qty: this.state.qty-1
         // });
+        {/*This is used when previous State is required*/}
         this.setState((prevState)=>{
             return{
                 qty: prevState.qty-1
