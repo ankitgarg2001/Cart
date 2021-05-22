@@ -27,7 +27,7 @@ class CartItem extends React.Component{
         //     qty:this.state.qty+1
         // });
 
-        {/*Batching only last call happens*/}
+        {/*Batching only last call happens and this Asynchrounous call*/}
         // this.setState({
         //     qty:this.state.qty+1
         // });
@@ -40,6 +40,7 @@ class CartItem extends React.Component{
         
     }
     // testing(){
+    /* This synchounous call*/ 
     //     const promise = new Promise((resolve,reject)=>{
     //         setTimeout(()=>{
     //             resolve('done');
